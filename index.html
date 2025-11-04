@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricpen Tips | Premium Cricket Predictions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a0a16;
+            --card-bg: #151525;
+            --accent-1: #4CAF50;
+            --accent-2: #2E7D32;
+            --text-primary: #ffffff;
+            --text-secondary: #d0d0e0;
+            --border: #2a2a4a;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(46, 125, 50, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Advertiser Link */
+        .advertiser-top {
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        
+        .advertiser-top a {
+            color: var(--accent-1);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .advertiser-top a:hover {
+            color: var(--accent-2);
+            text-decoration: underline;
+        }
+        
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2a2a4a;
+            box-shadow: 0 0 25px rgba(76, 175, 80, 0.4);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-name {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+        }
+        
+        /* Fancy Button Style */
+        .btn {
+            --fancy-button-gradient-0: #4CAF50;
+            --fancy-button-gradient-50: #388E3C;
+            --fancy-button-gradient-100: #2E7D32;
+            --fancy-button-inner-shadow-top: rgba(200, 255, 200, 0.2);
+            --fancy-button-inner-shadow-top-lg: rgba(9, 12, 60, 0.1);
+            --fancy-button-inner-shadow-bottom: rgba(150, 255, 150, 0.3);
+            --fancy-button-shine-top: #c8e6c9;
+            --fancy-button-shine-bottom: #a5d6a7;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 21px;
+            text-shadow: 0px 0.5px 0.5px rgba(0, 0, 0, 0.2);
+            padding: 0;
+            margin: 0;
+            appearance: none;
+            border: none;
+            outline: none;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 25px;
+            color: #fff;
+            background-image: linear-gradient(
+                to bottom,
+                var(--fancy-button-gradient-0) 0%,
+                var(--fancy-button-gradient-50) 50%,
+                var(--fancy-button-gradient-100) 100%
+            );
+            box-shadow:
+                0px 4px 12px rgba(9, 12, 60, 0.15),
+                0px 2px 8px rgba(9, 12, 60, 0.15),
+                0px 1px 3px var(--fancy-button-inner-shadow-top-lg),
+                inset 0px 1px 1px var(--fancy-button-inner-shadow-top),
+                inset 0px -1px 3px var(--fancy-button-inner-shadow-bottom);
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:before,
+        .btn:after {
+            content: "";
+            position: absolute;
+            border-radius: inherit;
+            will-change: transform;
+        }
+        
+        .btn:before {
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--fancy-button-shine-top);
+            width: 96px;
+            height: 6px;
+            top: -3px;
+            opacity: 0.6;
+            filter: blur(6px);
+            transition: opacity 0.25s;
+        }
+        
+        .btn:after {
+            inset: 0;
+            background-size: cover;
+            z-index: 2;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+        
+        .btn span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: inherit;
+            overflow: hidden;
+            position: relative;
+            background-image: linear-gradient(
+                to bottom,
+                var(--fancy-button-shine-top),
+                transparent 8px
+            );
+            background-position: 0 -6px;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+        
+        .btn span:before,
+        .btn span:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background-color: var(--fancy-button-shine-bottom);
+            transition:
+                opacity 0.25s,
+                transform 0.25s;
+            will-change: transform;
+        }
+        
+        .btn span:before {
+            width: 92px;
+            height: 8px;
+            bottom: -4px;
+            opacity: 0.75;
+            filter: blur(6px);
+        }
+        
+        .btn span:after {
+            width: 112px;
+            height: 1px;
+            bottom: 0;
+            opacity: 0.9;
+            filter: blur(1px);
+        }
+        
+        .btn:hover span:before {
+            opacity: 0.8;
+        }
+        
+        .btn:hover span:before {
+            transform: translateX(-50%) scale(1.25);
+        }
+        
+        .btn:hover span:after {
+            opacity: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0px 6px 18px rgba(9, 12, 60, 0.25),
+                0px 3px 10px rgba(9, 12, 60, 0.25),
+                0px 1px 3px var(--fancy-button-inner-shadow-top-lg),
+                inset 0px 1px 1px var(--fancy-button-inner-shadow-top),
+                inset 0px -1px 3px var(--fancy-button-inner-shadow-bottom);
+        }
+        
+        .cta-button {
+            font-size: 1.2rem;
+            padding: 0;
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        
+        .stat-card {
+            padding: 25px;
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            border-radius: 2px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            padding: 30px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--accent-1);
+        }
+        
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 70px 0;
+            background: linear-gradient(to bottom, rgba(76, 175, 80, 0.1), transparent);
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .cta-text {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .testimonial-card {
+            padding: 25px;
+            border-radius: 16px;
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--accent-1), var(--accent-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .author-name {
+            font-weight: 600;
+        }
+        
+        .author-role {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Sticky Bottom Button */
+        .sticky-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(21, 21, 37, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .sticky-button {
+            font-size: 1.1rem;
+            padding: 0;
+        }
+        
+        /* Advertiser Section */
+        .advertiser {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .advertiser a {
+            color: var(--accent-1);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .advertiser a:hover {
+            color: var(--accent-2);
+            text-decoration: underline;
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.6) 0%, rgba(46, 125, 50, 0.3) 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100vw);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-name {
+                font-size: 2.2rem;
+            }
+            
+            .stat-card {
+                min-width: 140px;
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-text {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-card {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: 50px 20px;
+            }
+            
+            .sticky-button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <!-- Top Advertiser Link -->
+        <div class="advertiser-top">
+            <a href="https://t.me/+lpl9wSvnR3YyZjA1" target="_blank">
+                <i class="fas fa-eye"></i> view advertiser
+            </a>
+        </div>
+        
+        <header class="header">
+            <div class="profile-container">
+                <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/690a558f436be_6867da9d-f954-4f26-ac17-f5b5669d2e60.jpeg" alt="Cricpen Tips" class="profile-image">
+                <h1 class="profile-name">Cricpen Tips</h1>
+                
+                <!-- Fancy Button -->
+                <a href="https://t.me/+lWfPo5klujQ0YTk1" class="btn cta-button">
+                    <span><i class="fab fa-telegram-plane"></i> JOIN TELEGRAM</span>
+                </a>
+            </div>
+        </header>
+        
+        <div class="stats">
+            <div class="card stat-card">
+                <div class="stat-number">18,000+</div>
+                <div class="stat-label">Active Members</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-number">96%</div>
+                <div class="stat-label">Accuracy Rate</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Match Analysis</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-number">8-12</div>
+                <div class="stat-label">Daily Predictions</div>
+            </div>
+        </div>
+        
+        <section class="features">
+            <h2 class="section-title">Why Join Cricpen Tips?</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cricket"></i>
+                    </div>
+                    <h3 class="feature-title">Expert Cricket Analysis</h3>
+                    <p class="feature-desc">Get premium cricket match analysis with insights on team performance, pitch conditions, and player statistics.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="feature-title">Accurate Predictions</h3>
+                    <p class="feature-desc">Receive highly accurate toss and match predictions from our experienced cricket analysts.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Active Community</h3>
+                    <p class="feature-desc">Join our exclusive community of cricket lovers sharing insights, strategies, and match discussions.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to Join Cricpen Tips?</h2>
+            <p class="cta-text">Become part of our cricket community and get access to premium predictions and expert analysis.</p>
+            
+            <!-- Fancy Button -->
+            <a href="https://t.me/+lWfPo5klujQ0YTk1" class="btn cta-button">
+                <span><i class="fab fa-telegram-plane"></i> JOIN OUR TELEGRAM CHANNEL</span>
+            </a>
+        </section>
+        
+        <section class="testimonials">
+            <h2 class="section-title">What Our Members Say</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Cricpen Tips has the most accurate cricket predictions I've ever seen. Their analysis is always spot on!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div>
+                            <div class="author-name">Rahul K.</div>
+                            <div class="author-role">Cricket Fan</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I've been following Cricpen Tips for months now, and their predictions have helped me win big in fantasy leagues."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div>
+                            <div class="author-name">Priya S.</div>
+                            <div class="author-role">Fantasy Player</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The community here is amazing. I've learned so much about cricket analysis and prediction strategies."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <div class="author-name">Amit R.</div>
+                            <div class="author-role">Sports Enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="advertiser">
+            <p>Advertiser: <a href="https://t.me/+lpl9wSvnR3YyZjA1" target="_blank">@quicklygrow</a></p>
+        </div>
+    </div>
+    
+    <div class="sticky-bottom">
+        <!-- Fancy Button -->
+        <a href="https://t.me/+lWfPo5klujQ0YTk1" class="btn sticky-button">
+            <span><i class="fab fa-telegram-plane"></i> JOIN TELEGRAM CHANNEL</span>
+        </a>
+    </div>
+
+    <script>
+        // Add scroll animation for elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.stat-card, .feature-card, .testimonial-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Set initial state for animated elements
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+            
+            // Create floating particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties for each particle
+                const size = Math.random() * 15 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}vw`;
+                particle.style.top = `${posY}vh`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
